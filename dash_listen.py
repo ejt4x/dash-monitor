@@ -17,7 +17,7 @@ def button_pressed(event):
     log.debug("URL = {url}".format(url=request_url))
     r = requests.get(request_url)
     if r.status_code != requests.codes.ok:
-        log.error("Bad reponse: {resp}".format(resp=r.text))
+        log.error("Bad response: {resp}".format(resp=r.text))
     else:
         log.info("Event {event} triggered successfully".format(event=event))
 
