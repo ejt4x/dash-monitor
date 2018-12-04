@@ -9,7 +9,7 @@ from config import ifttt_key, macs
 
 ifttt_url = 'https://maker.ifttt.com/trigger/{event}/with/key/{key}'
 
-#log.basicConfig(level=log.DEBUG)
+log.basicConfig(level=log.INFO)
 
 def button_pressed(event):
     request_url = ifttt_url.format(event=event, key=ifttt_key)
