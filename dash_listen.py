@@ -2,7 +2,6 @@
 
 from scapy.all import *
 import logging as log
-import config
 import requests
 import os
 import sys
