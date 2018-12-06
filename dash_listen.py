@@ -9,7 +9,7 @@ from config import ifttt_key, macs
 
 ifttt_url = 'https://maker.ifttt.com/trigger/{event}/with/key/{key}'
 
-log.basicConfig(level=log.INFO)
+log.basicConfig(level=log.DEBUG)
 
 def button_pressed(event):
     request_url = ifttt_url.format(event=event, key=ifttt_key)
@@ -20,10 +20,9 @@ def button_pressed(event):
     else:
         log.info("Event {event} triggered successfully".format(event=event))
 
-def check_arp(pkt):
-    if ARP in pkt:
-        src = pkt[Ether].src
-        log.debug("ARP received from {src}".format(src=src))
+def check_802(pkt):
+    if '802.3' in pkt:
+        src = pkt['Dot3'].src
         if src in macs:
             log.info("Button pressed")
             log.info("{event} event triggering".format(event=macs[src]))
@@ -40,7 +39,7 @@ def main():
         sys.exit(1)
     else:
         log.debug("You are root")
-        log.info('Waiting for ARP packets...')
-        sniff( filter="arp", prn = check_arp )
+        log.info('Waiting for 802.3 packets...')
+        sniff( prn = check_802 )
 
 if __name__ == "__main__": main()
