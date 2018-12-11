@@ -1,0 +1,11 @@
+[Unit]
+Description=Dash Button Monitor
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/opt/dash-monitor/venv/bin/python /opt/dash-monitor/dash_listen.py
+
+[Install]
+WantedBy=multi-user.target
