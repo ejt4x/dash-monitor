@@ -45,7 +45,7 @@ def main():
     bpf = " or ".join("ether src host {ehost}".format(ehost=mac) for mac in macs)
     log.debug("Filter: " + bpf)
     while True:
-        sniff(iface=interface, filter=bpf, prn = check_802, count=3 )
+        sniff(iface=interface, filter=bpf, prn = check_arp, count=3 )
         log.debug("reloading")
 
 if __name__ == "__main__": main()
