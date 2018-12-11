@@ -45,7 +45,7 @@ def main():
 
     log.info('Waiting for arp packets...')
     while True:
-        sniff(iface=interface, filter=bpf, prn = check_arp, count=3 )
+        sniff(iface=interface, filter=bpf, prn = check_arp, count = 3 , store =0)
         log.debug("reloading")
 
 if __name__ == "__main__": main()
