@@ -1,0 +1,14 @@
+# Example config file
+
+# IFTTT Maker Key
+# https://ifttt.com/services/maker_webhooks/settings
+ifttt_key = 'abc123def456ghi789-1010102'
+
+# Network interface to listen for button presses
+interface='wlan0'
+
+# HW addresses of dash buttons and their associated IFTTT webhook events
+macs = {
+        '18:74:2e:ae:ab:12': 'event1',
+      # 'mac2': 'event2' 
+        }
